@@ -21,23 +21,7 @@ export class TestView {
 }
 
 const tree: any = {
-	'a': {
-		'aa': {
-			'aaa': {
-				'aaaa': {
-					'aaaaa': {
-						'aaaaaa': {
-
-						}
-					}
-				}
-			}
-		},
-		'ab': {}
-	},
-	'b': {
-		'ba': {},
-		'bb': {}
+	'text before newline \n text after newline': {
 	}
 };
 const nodes: any = {};
