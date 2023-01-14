@@ -154,6 +154,11 @@
 			],
 			"view/title": [
 				{
+					"command": "testView.changeTitle",
+					"when": "view == testView",
+					"group": "navigation"
+				},
+				{
 					"command": "nodeDependencies.refreshEntry",
 					"when": "view == nodeDependencies",
 					"group": "navigation"
@@ -200,6 +205,10 @@
 					"command": "fileExplorer.refreshFile",
 					"when": "view == fileExplorer && viewItem == file",
 					"group": "inline"
+				},
+				{
+					"command": "testView.changeTitle",
+					"when": "view == testView"
 				}
 			]
 		},

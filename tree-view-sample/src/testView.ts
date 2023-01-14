@@ -3,7 +3,7 @@ import * as vscode from 'vscode';
 export class TestView {
 
 	constructor(context: vscode.ExtensionContext) {
-		const view = vscode.window.createTreeView('testView', { treeDataProvider: aNodeWithIdTreeDataProvider(), showCollapseAll: true });
+		const view = vscode.window.createTreeView('testView', { treeDataProvider: aNodeWithIdTreeDataProvider(), showCollapseAll: true, canSelectMany: true });
 		context.subscriptions.push(view);
 		vscode.commands.registerCommand('testView.reveal', async () => {
 			const key = await vscode.window.showInputBox({ placeHolder: 'Type the label of the item to reveal' });
@@ -11,7 +11,9 @@ export class TestView {
 				await view.reveal({ key }, { focus: true, select: false, expand: true });
 			}
 		});
-		vscode.commands.registerCommand('testView.changeTitle', async () => {
+		vscode.commands.registerCommand('testView.changeTitle', async (focusedNode?: unknown, selectedNodes?: unknown) => {
+			console.log(focusedNode);
+			console.log(selectedNodes);
 			const title = await vscode.window.showInputBox({ prompt: 'Type the new title for the Test View', placeHolder: view.title });
 			if (title) {
 				view.title = title;
